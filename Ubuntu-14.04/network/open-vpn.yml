@@ -40,6 +40,7 @@ runcmd:
   - cp /etc/openvpn/easy-rsa/keys/server.key /etc/openvpn
   - cp /etc/openvpn/easy-rsa/keys/ca.crt /etc/openvpn
   - service openvpn start
+  - sed -i 's/;duplicate-cn/duplicate-cn/' /etc/openvpn/server.conf
 
   - cd /etc/openvpn/easy-rsa && ./build-key --batch client1
   - cp /usr/share/doc/openvpn/examples/sample-config-files/client.conf /etc/openvpn/easy-rsa/keys/client.ovpn
